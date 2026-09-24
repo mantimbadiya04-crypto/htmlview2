@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact – Get in touch with me via the contact form or social links.">
+    <title>Git Practice – Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-brand">⚡ GitPractice</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="contact-wrapper">
+
+    <!-- Info Cards -->
+    <div class="contact-info">
+        <h1>Get In Touch</h1>
+        <p class="contact-subtitle">Have a question or just want to say hi? Fill out the form or reach me through any of the channels below.</p>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <span class="info-icon">📧</span>
+                <div>
+                    <h3>Email</h3>
+                    <p>manan@example.com</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <span class="info-icon">📱</span>
+                <div>
+                    <h3>Phone</h3>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <span class="info-icon">📍</span>
+                <div>
+                    <h3>Location</h3>
+                    <p>Ahmedabad, India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="#" class="social-btn" id="github-btn">GitHub</a>
+            <a href="#" class="social-btn" id="linkedin-btn">LinkedIn</a>
+            <a href="#" class="social-btn" id="twitter-btn">Twitter</a>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <form class="contact-form" onsubmit="handleSubmit(event)" id="contact-form">
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Manan Timbadiya" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="manan@example.com" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="What's this about?">
+        </div>
+        <div class="form-group">
+            <label for="message-input">Message</label>
+            <textarea id="message-input" rows="5" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit" id="submit-btn">Send Message 🚀</button>
+        <p id="form-success" class="form-success"></p>
+    </form>
+
+</div>
+
+<script>
+    function handleSubmit(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submit-btn');
+        const success = document.getElementById('form-success');
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.textContent = '✅ Sent!';
+            success.textContent = 'Thanks! I\'ll get back to you soon.';
+            document.getElementById('contact-form').reset();
+            setTimeout(() => {
+                btn.textContent = 'Send Message 🚀';
+                btn.disabled = false;
+                success.textContent = '';
+            }, 3000);
+        }, 1200);
+    }
+</script>
+
+</body>
+</html>
